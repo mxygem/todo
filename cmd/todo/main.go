@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"errors"
 	"flag"
 	"fmt"
 	"io"
@@ -67,8 +68,7 @@ func main() {
 			cliError(err)
 		}
 	default:
-		fmt.Fprintln(os.Stderr, "invalid option")
-		os.Exit(1)
+		cliError(errors.New("invalid option"))
 	}
 }
 
